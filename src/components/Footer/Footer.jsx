@@ -2,7 +2,11 @@ import React from 'react';
 
 function Footer() {
   return (
+<<<<<<< HEAD
     <footer className='bg-slate-950 text-white py-6 md:py-10  min-w-full bottom-0'>
+=======
+    <footer className='bg-slate-950 text-white py-6 md:py-10 fixed min-w-full bottom-0'>
+>>>>>>> 24473709d42b72e9a171139750eaa9fc7a553ccc
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row lg:justify-between">
 
