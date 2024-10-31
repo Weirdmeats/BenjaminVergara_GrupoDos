@@ -6,7 +6,10 @@ function Contactos() {
     <div className='items-center'>
 
       
-      {/* Footer */}
+      {/* Footerfsddfdfssdfsdfsdfffffffffffffffffffffffffffffffffffff
+      dsfsd
+      fsdf
+      dfsdfssdf */}
       <Footer />
     </div>
   );
