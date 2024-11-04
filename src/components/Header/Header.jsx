@@ -1,8 +1,8 @@
 'use client';
 import React, { useState } from "react";
-import { words } from "../../data/data"; // Asegúrate de que este path sea correcto
+import { words } from "../../data/data"; 
 import { Link } from "react-router-dom";
-import { useShoppingCart } from "../ShoppingCart/ShoppingCartContext"; // Asegúrate de importar el contexto del carrito
+import { useShoppingCart } from "../ShoppingCart/ShoppingCartContext"; 
 
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
