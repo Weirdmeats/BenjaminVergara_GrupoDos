@@ -1,39 +1,40 @@
-
 import React from 'react';
-import Productos from './components/Pages/Productos/Productos.jsx';
-import ItemDetail from './components/ItemDetail/ItemDetail';
-import ProductsCategory from './components/Category/Category';
-import Header from './components/Header/Header.jsx';
-import Footer from './components/Footer/Footer.jsx';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Inicio from './components/Pages/Inicio/Inicio.jsx';
-import Contactos from './components/Pages/Contactos/Contactos.jsx';
-import Servicios from './components/Pages/Servicios/Servicios.jsx';
-
-
-
+import { ShoppingCartProvider } from './components/ShoppingCart/ShoppingCartContext.jsx'; 
+import Productos from './components/Pages/Productos/Productos';
+import ItemDetail from './components/ItemDetail/ItemDetail';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Inicio from './components/Pages/Inicio/Inicio';
+import Contactos from './components/Pages/Contactos/Contactos';
+import Servicios from './components/Pages/Servicios/Servicios';
+import Cart from './components/Pages/Cart/Cart'; 
 
 
 function App() {
-  return (
-      <BrowserRouter>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow flex items-center justify-center">
-            <Routes>
-              <Route path="/" element={<Inicio />} />
-              <Route path="/productos" element={<Productos />} />
-              <Route path='/category/:categoryId' element={<ProductsCategory />} />
-              <Route path='/products/:productId' element={<ItemDetail />} />
-              <Route path="/services/:serviceId" element={<ItemDetail />} />
-              <Route path="/contactos" element={<Contactos />} />
-              <Route path="/servicios" element={<Servicios />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </BrowserRouter>
-  )
+    return (
+        <BrowserRouter>
+            <ShoppingCartProvider>
+                <div className="flex flex-col min-h-screen">
+                    <Header />
+                    <main className="flex-grow flex items-center justify-center">
+                        <Routes>
+                            <Route path="/" element={<Inicio />} />
+                            <Route path="/productos" element={<Productos />} />
+                        
+                            <Route path='/products/:productId' element={<ItemDetail />} />
+                            <Route path="/services/:serviceId" element={<ItemDetail />} />
+                            <Route path="/contactos" element={<Contactos />} />
+                            <Route path="/servicios" element={<Servicios />} />
+                            <Route path="/cart" element={<Cart />} />
+                        </Routes>
+                    </main>
+
+                    <Footer />
+                </div>
+            </ShoppingCartProvider>
+        </BrowserRouter>
+    );
 }
 
-export default App
+export default App;

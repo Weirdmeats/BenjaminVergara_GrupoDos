@@ -5,7 +5,7 @@ function Contactos() {
   return (
     <div className='items-center'>
 
-      {/* Footer */}
+      {/*footer */}
       <Footer />
     </div>
     
