@@ -2,7 +2,7 @@ import React from 'react';
 
 function Inicio() {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
       {/* Imagen de fondo */}
       <img
         src="https://entel.cdn.modyo.com/uploads/ca8863c3-dee6-4bcd-aa01-82bfcba7b651/original/bg-desk.png"
@@ -11,7 +11,7 @@ function Inicio() {
       />
       
       {/* Filtro de color para mejorar la legibilidad */}
-      <div className="absolute inset-0 bg-black opacity-30"></div>
+      <div className="absolute inset-0 bg-black opacity-40"></div>
 
       {/* Contenedor del texto */}
       <div className="relative z-10 text-center p-4">

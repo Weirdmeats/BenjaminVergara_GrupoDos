@@ -27,7 +27,7 @@ function Header() {
     return (
         <nav className="bg-gray-900 p-2 relative">
             <div className="container mx-auto flex items-center justify-between flex-wrap">
-                <div className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-0">ENTEL-PCS</div>
+                <div className="text-white text-2xl md:text-3xl lg:text-2xl font-bold mb-2 md:mb-0">ENTEL-PCS</div>
                 <form className="w-full md:w-1/2 lg:w-1/3 relative mb-4 md:mb-0">
                     <div className="relative">
                         <input

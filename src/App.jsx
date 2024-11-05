@@ -10,26 +10,24 @@ import Contactos from './components/Pages/Contactos/Contactos';
 import Servicios from './components/Pages/Servicios/Servicios';
 import Cart from './components/Pages/Cart/Cart'; 
 
-
 function App() {
     return (
         <BrowserRouter>
             <ShoppingCartProvider>
                 <div className="flex flex-col min-h-screen">
                     <Header />
-                    <main className="flex-grow flex items-center justify-center">
+                    <main className="flex-grow flex flex-col items-center justify-center p-4 md:p-6 lg:p-8">
                         <Routes>
                             <Route path="/" element={<Inicio />} />
                             <Route path="/productos" element={<Productos />} />
-                        
                             <Route path='/products/:productId' element={<ItemDetail />} />
                             <Route path="/services/:serviceId" element={<ItemDetail />} />
+                            
                             <Route path="/contactos" element={<Contactos />} />
                             <Route path="/servicios" element={<Servicios />} />
                             <Route path="/cart" element={<Cart />} />
                         </Routes>
                     </main>
-
                     <Footer />
                 </div>
             </ShoppingCartProvider>

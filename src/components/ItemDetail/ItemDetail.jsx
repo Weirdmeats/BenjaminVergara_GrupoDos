@@ -4,7 +4,7 @@ import { getProductById, getServiceById } from '../../data/asyncMock.jsx';
 import Loading from '../Loading/Loading.jsx';
 import { useShoppingCart } from '../../components/ShoppingCart/ShoppingCartContext.jsx'; 
 
-// Componente para mostrar los detalles de un producto o servicio
+//componente para mostrar los detalles de un producto o servicio
 export default function ItemDetail() {
     const { productId, serviceId } = useParams(); 
     const [item, setItem] = useState({ stock: 0 }); 
@@ -13,7 +13,7 @@ export default function ItemDetail() {
     const { dispatch } = useShoppingCart(); 
 
     useEffect(() => {
-        // Cargar producto o servicio según el id
+        //cargar producto o servicio según el id
         if (productId) {
             getProductById(productId).then((data) => {
                 setItem(data);
@@ -38,7 +38,7 @@ export default function ItemDetail() {
         }
     }, [productId, serviceId]);
 
-    // Funciones para manejar la cantidad
+    //funciones para manejar la cantidad
     const decrementQuantity = () => {
         if (quantity > 1) { 
             setQuantity(quantity - 1);
@@ -51,10 +51,10 @@ export default function ItemDetail() {
         }
     };
 
-    // Calcular el precio total
+    //calcular el precio total
     const precioTotal = item.price ? item.price * quantity : 0;
 
-    // Manejar la adición al carrito
+    //manejar la adición al carrito
     const handleAddToCart = () => {
         if (quantity > 0) {
             dispatch({ type: 'ADD_TO_CART', payload: { ...item, quantity } });
@@ -62,37 +62,39 @@ export default function ItemDetail() {
         }
     };
 
-    // Renderizar carga
+    //renderizar carga
     if (loading) {
-        return <div className='container mx-auto max-w-[1170px]'><Loading /></div>;
+        return <div className="container mx-auto max-w-[1170px]"><Loading /></div>;
     }
     
-    // Manejar item no encontrado
+    //manejar item no encontrado
     if (!item) {
-        return <div>Item not found</div>;
+        return <div className="text-center text-red-500">Item not found</div>;
     }
 
     return (
-        <div className='container mx-auto max-w-[1170px]'>
-            <div className="grid grid-cols-2 pt-[50px] pb-[100px]">
-                <div className="span-col-1 pr-[30px]">
-                    {/* Mostrar imagen del producto o servicio */}
-                    <img src={item.img} alt="Imagen del producto o servicio" className='w-full rounded-[20px]' />
+        <div className="container mx-auto max-w-[1170px] px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 pb-16">
+                <div className="flex justify-center md:justify-start">
+                    {/*mostrar imagen del producto o servicio */}
+                    <img src={item.img} alt="Imagen del producto o servicio" className="w-full max-w-[300px] md:max-w-full rounded-lg shadow-lg" />
                 </div>
-                <div>
-                    <h1 className='text-[45px] font-medium uppercase'>{item.name}</h1>
-                    <p className='text-[20px] my-[20px]'>{item.description || item.despcription}</p>
-                    <p className='text-[20px] my-[20px]'>Stock: {item.stock}</p>
-                    <div className='flex'>
-                        {/* Botones para ajustar la cantidad */}
-                        <button onClick={decrementQuantity} className='rounded-[5px] hover:bg-slate-600 hover:text-[#ffffff] w-[50px] border-[1px] text-[20px] flex justify-center'> - </button>
-                        <p className='text-[20px] px-[10px]'>{quantity}</p>
-                        <button onClick={incrementQuantity} className='rounded-[5px] hover:bg-slate-600 hover:text-[#ffffff] w-[50px] border-[1px] text-[20px] flex justify-center'> + </button>
+                <div className="text-center md:text-left">
+                    <h1 className="text-[30px] md:text-[45px] font-medium uppercase text-[#1e293b]">{item.name}</h1>
+                    <p className="text-[16px] md:text-[20px] my-4 text-[#4b5563]">{item.description || item.despcription}</p>
+                    <p className="text-[16px] md:text-[20px] my-4 text-[#4b5563]">Stock: {item.stock}</p>
+                    <div className="flex items-center justify-center md:justify-start gap-4 my-4">
+                        {/*botones para ajustar la cantidad */}
+                        <button onClick={decrementQuantity} className="rounded-md hover:bg-slate-600 hover:text-white w-12 border text-[16px] md:text-[20px] flex justify-center items-center">-</button>
+                        <p className="text-[16px] md:text-[20px] px-2">{quantity}</p>
+                        <button onClick={incrementQuantity} className="rounded-md hover:bg-slate-600 hover:text-white w-12 border text-[16px] md:text-[20px] flex justify-center items-center">+</button>
                     </div>
-                    <p className='text-[20px] my-[20px]'>Precio: ${item.price} por unidad</p>
-                    <p className='text-[20px] my-[20px]'>Precio Total: ${precioTotal}</p>
-                    {/* Botón para agregar al carrito */}
-                    <button onClick={handleAddToCart} className='bg-slate-500 text-[#ffffff] text-[20px] px-[25px] py-[5px] rounded-lg hover:bg-[#304c8a]'>Comprar</button>
+                    <p className="text-[16px] md:text-[20px] my-4 text-[#4b5563]">Precio: ${item.price} por unidad</p>
+                    <p className="text-[16px] md:text-[20px] my-4 font-semibold text-[#1e293b]">Precio Total: ${precioTotal}</p>
+                    {/* boton para agregar al carrito */}
+                    <button onClick={handleAddToCart} className="bg-slate-500 text-white text-[16px] md:text-[20px] px-6 py-2 rounded-lg hover:bg-[#304c8a] transition duration-300">
+                        Comprar
+                    </button>
                 </div>
             </div>
         </div>

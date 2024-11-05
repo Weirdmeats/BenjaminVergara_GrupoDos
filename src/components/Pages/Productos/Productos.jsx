@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ItemList from '../../ItemList/ItemList';
 
 function Productos() {
-    //estado para la categoría
+    // Estado para la categoría
     const [selectedCategory, setSelectedCategory] = useState('all');
 
     return (
@@ -11,27 +11,27 @@ function Productos() {
                 <h1 className='text-slate-900 font-bold text-2xl md:text-3xl text-center mb-8'>REVISA NUESTROS PRODUCTOS</h1>
                 
                 {/* Botones de categoría */}
-                <div className="flex justify-center mb-8 space-x-4">
+                <div className="flex flex-wrap justify-center mb-8 space-x-4">
                     <button
-                        className={`px-4 py-2 rounded ${selectedCategory === 'all' ? 'bg-slate-600 text-white' : 'bg-white text-slate-600 border border-slate-600'}`}
+                        className={`px-4 py-2 rounded transition duration-300 ${selectedCategory === 'all' ? 'bg-slate-600 text-white' : 'bg-white text-slate-600 border border-slate-600 hover:bg-slate-100'}`}
                         onClick={() => setSelectedCategory('all')}
                     >
                         Todos
                     </button>
                     <button
-                        className={`px-4 py-2 rounded ${selectedCategory === 'celulares' ? 'bg-slate-600 text-white' : 'bg-white text-slate-600 border border-slate-600'}`}
+                        className={`px-4 py-2 rounded transition duration-300 ${selectedCategory === 'celulares' ? 'bg-slate-600 text-white' : 'bg-white text-slate-600 border border-slate-600 hover:bg-slate-100'}`}
                         onClick={() => setSelectedCategory('celulares')}
                     >
                         Celulares
                     </button>
                     <button
-                        className={`px-4 py-2 rounded ${selectedCategory === 'powerbanks' ? 'bg-slate-600 text-white' : 'bg-white text-slate-600 border border-slate-600'}`}
+                        className={`px-4 py-2 rounded transition duration-300 ${selectedCategory === 'powerbanks' ? 'bg-slate-600 text-white' : 'bg-white text-slate-600 border border-slate-600 hover:bg-slate-100'}`}
                         onClick={() => setSelectedCategory('powerbanks')}
                     >
                         Powerbanks
                     </button>
                     <button
-                        className={`px-4 py-2 rounded ${selectedCategory === 'cargadores' ? 'bg-slate-600 text-white' : 'bg-white text-slate-600 border border-slate-600'}`}
+                        className={`px-4 py-2 rounded transition duration-300 ${selectedCategory === 'cargadores' ? 'bg-slate-600 text-white' : 'bg-white text-slate-600 border border-slate-600 hover:bg-slate-100'}`}
                         onClick={() => setSelectedCategory('cargadores')}
                     >
                         Cargadores

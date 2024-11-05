@@ -12,7 +12,7 @@ function ItemList({ itemType }) {
         const fetchItems = async () => {
             setLoading(true); 
             
-            // Obtener productos o servicios según el tipo
+            //obtener productos o servicios según el tipo
             let fetchedItems;
             if (itemType === 'services') {
                 fetchedItems = await getServices();
@@ -20,7 +20,7 @@ function ItemList({ itemType }) {
                 fetchedItems = await getProducts(); 
             }
 
-            // Filtrar items según la categoría seleccionada
+            //filtrar items según la categoría seleccionada
             if (itemType === 'celulares') {
                 const filteredCelulares = fetchedItems.filter(item => item.category === 'celulares');
                 setItems(filteredCelulares);
@@ -49,13 +49,14 @@ function ItemList({ itemType }) {
         fetchItems();
     }, [itemType]);
 
-    // Mostrar el loading mientras se obtienen los datos
+    //mostrar el loading mientras se obtienen los datos
     if (loading) {
         return <Loading />;
     }
 
     return (
-        <div className="flex flex-wrap justify-center">
+        <div className="container mx-auto px-4 py-6">
+            <div className="flex flex-wrap justify-center gap-4">
             {items.map(item => (
                 itemType === 'services' ? (
                     <ItemServices key={item.id} {...item} />
@@ -63,6 +64,7 @@ function ItemList({ itemType }) {
                     <ItemProducts key={item.id} {...item} />
                 )
             ))}
+            </div>
         </div>
     );
 }
