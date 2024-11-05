@@ -175,7 +175,7 @@ const Products = [
 ];
 
 export default Products;
-
+//constante obtenerproducto retornando una promesa
 export const getProducts = () => {
     return new Promise((res) => {
         setTimeout(() => {
@@ -183,7 +183,7 @@ export const getProducts = () => {
         }, 2000);
     });
 };
-
+//constante obtenerproductoID retornando una promesa
 export const getProductById = (id) => {
     return new Promise((res) => {
         const productoFiltrado = Products.find((product) => product.id === parseInt(id));
@@ -192,7 +192,7 @@ export const getProductById = (id) => {
         }, 2000);
     });
 };
-
+//constante obtenerproductoCategoria retornando una promesa
 export const getProductByCategory = (category) => {
     return new Promise((res) => {
         const productosFiltrados = Products.filter((product) => product.category === category);
@@ -260,7 +260,7 @@ const Services = [
     }
 ];
 
-
+//constante obtenerServicios retornando una promesa
 export const getServices = () => {
     return new Promise((res) => {
         setTimeout(() => {
@@ -268,7 +268,7 @@ export const getServices = () => {
         }, 2000);
     });
 };
-
+//constante obtenerServiciosID retornando una promesa
 export const getServiceById = (id) => {
     return new Promise((res) => {
         const serviceFiltrado = Services.find((service) => service.id === parseInt(id));
@@ -277,7 +277,7 @@ export const getServiceById = (id) => {
         }, 2000);
     });
 };
-
+//constante obtenerServicioCategoria retornando una promesa
 export const getServiceByCategory = (category) => {
     return new Promise((res) => {
         const serviciosFiltrados = Services.filter((service) => service.category === category);
