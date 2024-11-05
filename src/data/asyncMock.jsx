@@ -209,7 +209,7 @@ const Services = [
         name: 'Paquete Internet Satelital A',
         price: 50000,
         description: 'Paquete que incluye servicio de Internet satelital con velocidad de hasta 10 Mbps, ideal para zonas rurales.',
-        stock: 0,
+        stock: 1,
         img: 'https://www.elcalbucano.cl/wp-content/uploads/2021/12/I.-Satelital-scaled.jpg',
         category: 'paquete' 
     },
@@ -218,7 +218,7 @@ const Services = [
         name: 'Paquete Internet Satelital B',
         price: 70000,
         description: 'Paquete que incluye servicio de Internet satelital con velocidad de hasta 20 Mbps, ideal para streaming y trabajo remoto.',
-        stock: 5,
+        stock: 0,
         img: 'https://wibo.mx/wp-content/uploads/2018/05/dreamstime_s_12731635-compressor.jpg',
         category: 'paquete'
     },
@@ -227,7 +227,7 @@ const Services = [
         name: 'Paquete Fibra Óptica A',
         price: 60000,
         description: 'Paquete que incluye servicio de Internet por fibra óptica con velocidad de hasta 100 Mbps, ideal para hogares y pequeñas empresas.',
-        stock: 3,
+        stock: 1,
         img: 'https://static.movistar.cl/og/fibra.jpg',
         category: 'paquete' 
     },
@@ -236,7 +236,7 @@ const Services = [
         name: 'Paquete Fibra Óptica B',
         price: 90000,
         description: 'Paquete que incluye servicio de Internet por fibra óptica con velocidad de hasta 200 Mbps, ideal para usuarios intensivos.',
-        stock: 2,
+        stock: 0,
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3RyjhLAtOMY_RGzSEis0fRas95gC80K-NMsWhqv8zr3LhIoqXwHXeap8O5KF1juynX_I&usqp=CAU',
         category: 'paquete'
     },
@@ -245,7 +245,7 @@ const Services = [
         name: 'Paquete Básico',
         price: 100000,
         description: 'Paquete que incluye Internet satelital y teléfono fijo, ideal para familias.',
-        stock: 4,
+        stock: 1,
         img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3RyjhLAtOMY_RGzSEis0fRas95gC80K-NMsWhqv8zr3LhIoqXwHXeap8O5KF1juynX_I&usqp=CAU',
         category: 'paquete' 
     },
