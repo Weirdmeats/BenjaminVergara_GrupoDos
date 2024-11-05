@@ -58,7 +58,7 @@ export default function ItemDetail() {
     const handleAddToCart = () => {
         if (quantity > 0) {
             dispatch({ type: 'ADD_TO_CART', payload: { ...item, quantity } });
-            alert(`${quantity} ${item.name}(s) agregado(s) al carrito`);
+            alert(`${quantity} "${item.name}", Agregado al carrito`);
         }
     };
 
