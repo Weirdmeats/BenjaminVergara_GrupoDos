@@ -2,18 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getProductById, getServiceById } from '../../data/asyncMock.jsx';
 import Loading from '../Loading/Loading.jsx';
-import { useShoppingCart } from '../../components/ShoppingCart/ShoppingCartContext.jsx'; 
 
-//componente para mostrar los detalles de un producto o servicio
+// Componente para mostrar los detalles de un producto o servicio
 export default function ItemDetail() {
     const { productId, serviceId } = useParams(); 
     const [item, setItem] = useState({ stock: 0 }); 
     const [loading, setLoading] = useState(true); 
     const [quantity, setQuantity] = useState(1);
-    const { dispatch } = useShoppingCart(); 
 
     useEffect(() => {
-        //cargar producto o servicio según el id
+        // Cargar producto o servicio según el id
         if (productId) {
             getProductById(productId).then((data) => {
                 setItem(data);
@@ -38,7 +36,7 @@ export default function ItemDetail() {
         }
     }, [productId, serviceId]);
 
-    //funciones para manejar la cantidad
+    // Funciones para manejar la cantidad
     const decrementQuantity = () => {
         if (quantity > 1) { 
             setQuantity(quantity - 1);
@@ -51,23 +49,24 @@ export default function ItemDetail() {
         }
     };
 
-    //calcular el precio total
+    // Calcular el precio total
     const precioTotal = item.price ? item.price * quantity : 0;
 
-    //manejar la adición al carrito
+    
     const handleAddToCart = () => {
         if (quantity > 0) {
-            dispatch({ type: 'ADD_TO_CART', payload: { ...item, quantity } });
-            alert(`${quantity} "${item.name}", Agregado al carrito`);
+         
+            alert(`${quantity} "${item.name}" agregado al carrito.`);
+           ;
         }
     };
 
-    //renderizar carga
+    // Renderizar carga
     if (loading) {
         return <div className="container mx-auto max-w-[1170px]"><Loading /></div>;
     }
     
-    //manejar item no encontrado
+    // Manejar item no encontrado
     if (!item) {
         return <div className="text-center text-red-500">Item not found</div>;
     }
@@ -91,8 +90,10 @@ export default function ItemDetail() {
                     </div>
                     <p className="text-[16px] md:text-[20px] my-4 text-[#4b5563]">Precio: ${item.price} por unidad</p>
                     <p className="text-[16px] md:text-[20px] my-4 font-semibold text-[#1e293b]">Precio Total: ${precioTotal}</p>
-                    {/* boton para agregar al carrito */}
-                    <button onClick={handleAddToCart} className="bg-slate-500 text-white text-[16px] md:text-[20px] px-6 py-2 rounded-lg hover:bg-[#304c8a] transition duration-300">
+                    {/* Botón para agregar al carrito */}
+                    <button 
+                        className="bg-slate-500 text-white text-[16px] md:text-[20px] px-6 py-2 rounded-lg hover:bg-[#304c8a] transition duration-300"
+                    >
                         Comprar
                     </button>
                 </div>

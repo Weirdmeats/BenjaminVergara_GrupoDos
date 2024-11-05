@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { words } from "../../data/data"; 
 import { Link } from "react-router-dom";
-import { useShoppingCart } from "../ShoppingCart/ShoppingCartContext"; 
 
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,9 +19,6 @@ function Header() {
             setSearchResults(words.filter(word => word.toLowerCase().includes(query.toLowerCase())).slice(0, 8));
         }
     };
-
-    // Usamos el contexto del carrito para obtener el número de elementos
-    const { state } = useShoppingCart();
 
     return (
         <nav className="bg-gray-900 p-2 relative">
@@ -80,24 +76,6 @@ function Header() {
                     <li><Link to="/servicios" className="text-white hover:text-gray-300">Servicios</Link></li>
                     <li><Link to="/contactos" className="text-white hover:text-gray-300">Contactos</Link></li>
                 </ul>
-                <div className="hidden md:flex items-center space-x-4">
-                    <Link to="/cart" className="relative text-white">
-                        <svg
-                            fill="none"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            viewBox="0 0 24 24"
-                            className="w-6 h-6"
-                        >
-                            <path d="M1 1h4l1.68 9.29a2 2 0 0 0 1.96 1.71h11.88a2 2 0 0 0 1.96-1.71L23 6H6"></path>
-                            <circle cx="9" cy="20" r="2"></circle>
-                            <circle cx="16" cy="20" r="2"></circle>
-                        </svg>
-                        <span className="absolute -top-1 -right-2 text-xs bg-red-600 text-white rounded-full px-1">{state.cart.length}</span>
-                    </Link>
-                </div>
             </div>
             {isMenuOpen && (
                 <div className={`fixed top-0 right-0 h-full w-64 bg-gray-900 text-white shadow-lg z-50 transition-transform transform ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
