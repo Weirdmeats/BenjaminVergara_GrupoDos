@@ -53,13 +53,7 @@ export default function ItemDetail() {
     const precioTotal = item.price ? item.price * quantity : 0;
 
     
-    const handleAddToCart = () => {
-        if (quantity > 0) {
-         
-            alert(`${quantity} "${item.name}" agregado al carrito.`);
-           ;
-        }
-    };
+
 
     // Renderizar carga
     if (loading) {

@@ -1,37 +1,19 @@
-//Importaciones necesarias
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-//se importa el archivo asyncmock para tener una base de datos
-import { getProductByCategory } from "../../data/asyncMock";
-//itemlist para la lista de items
-import ItemList from "../ItemList/ItemList";
-//loading para la carga
-import Loading from "../Loading/Loading";
+import React from 'react';
 
-export default function ProductsCategory() {
-    //Declaración de estado
-    const [loading, setLoading] = useState(true);
-    const [products, setProducts] = useState([]);
-    const { categoryId } = useParams(); // se obtiene el id de la categoria desde los params
-
-    //Efecto para cargar productos según la categoría
-    useEffect(() => {
-        setLoading(true);
-        getProductByCategory(categoryId)
-            .then((data) => setProducts(data))
-            .catch((err) => console.log(err))
-            .finally(() => setLoading(false));
-    }, [categoryId]); //se vuelve a ejecutar si categoryId cambia
-
+function Category({ selectedCategory, setSelectedCategory }) {
     return (
-        <div className="container mx-auto max-w-[90%] sm:max-w-[80%] md:max-w-[70%] lg:max-w-[1170px] py-4 px-2">
-            {loading ? (
-                <div className="flex justify-center items-center h-full">
-                    <Loading />
-                </div>
-            ) : (
-                <ItemList products={products} /> //se pasa la lista de productos al componente ItemList
-            )}
+        <div className="flex justify-center mb-8">
+            {['all', 'celulares', 'powerbanks', 'cargadores'].map(category => (
+                <button
+                    key={category}
+                    className={`px-4 py-2 mx-2 rounded transition duration-300 ${selectedCategory === category ? 'bg-slate-600 text-white' : 'bg-white text-slate-600 border border-slate-600 hover:bg-slate-100'}`}
+                    onClick={() => setSelectedCategory(category)}
+                >
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                </button>
+            ))}
         </div>
     );
-};
+}
+
+export default Category;

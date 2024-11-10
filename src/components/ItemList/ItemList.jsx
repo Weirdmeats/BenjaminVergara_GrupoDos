@@ -1,55 +1,35 @@
 import React, { useEffect, useState } from 'react';
-import { getProducts, getServices } from '../../data/asyncMock'; 
-import ItemProducts from '../items/ItemProducts/ItemProducts'; 
-import ItemServices from '../items/ItemServices/ItemServices'; 
-import Loading from '../Loading/Loading'; 
-//estado de uso
+import { getProducts, getServices } from '../../data/asyncMock';
+import ItemProducts from '../items/ItemProducts/ItemProducts';
+import ItemServices from '../items/ItemServices/ItemServices';
+import Loading from '../Loading/Loading';
+
 function ItemList({ itemType }) {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        //empezar el loading
         const fetchItems = async () => {
-            setLoading(true); 
-            
-            //obtener productos o servicios según el tipo
+            setLoading(true);
             let fetchedItems;
+
+            // Verifica el tipo de item (productos o servicios) y filtra por categoría
             if (itemType === 'services') {
                 fetchedItems = await getServices();
+            } else if (itemType === 'all') {
+                fetchedItems = await getProducts();
             } else {
+                // Filtra productos por categoría específica
                 fetchedItems = await getProducts(); 
+                fetchedItems = fetchedItems.filter(product => product.category === itemType);
             }
 
-            //filtrar items según la categoría seleccionada
-            if (itemType === 'celulares') {
-                const filteredCelulares = fetchedItems.filter(item => item.category === 'celulares');
-                setItems(filteredCelulares);
-            } else if (itemType === 'powerbanks') {
-                const filteredPowerbanks = fetchedItems.filter(item => item.category === 'powerbanks');
-                setItems(filteredPowerbanks);
-            } else if (itemType === 'cargadores') {
-                const filteredCargadores = fetchedItems.filter(item => item.category === 'cargadores');
-                setItems(filteredCargadores);
-            } else if (itemType === 'internet_satelital') {
-                const filteredInternetSatelital = fetchedItems.filter(item => item.category === 'internet_satelital');
-                setItems(filteredInternetSatelital);
-            } else if (itemType === 'fibra_optica') {
-                const filteredFibraOptica = fetchedItems.filter(item => item.category === 'fibra_optica');
-                setItems(filteredFibraOptica);
-            } else if (itemType === 'paquete') {
-                const filteredPaquete = fetchedItems.filter(item => item.category === 'paquete');
-                setItems(filteredPaquete);
-            } else {
-                setItems(fetchedItems); 
-            }
-
+            setItems(fetchedItems);
             setLoading(false);
         };
-
         fetchItems();
-    }, [itemType]);
+    }, [itemType]); // Se vuelve a ejecutar cada vez que cambia la categoría
 
-    //mostrar el loading mientras se obtienen los datos
     if (loading) {
         return <Loading />;
     }
@@ -57,13 +37,13 @@ function ItemList({ itemType }) {
     return (
         <div className="container mx-auto px-4 py-6">
             <div className="flex flex-wrap justify-center gap-4">
-            {items.map(item => (
-                itemType === 'services' ? (
-                    <ItemServices key={item.id} {...item} />
-                ) : (
-                    <ItemProducts key={item.id} {...item} />
-                )
-            ))}
+                {items.map(item => (
+                    itemType === 'services' ? (
+                        <ItemServices key={item.id} {...item} />
+                    ) : (
+                        <ItemProducts key={item.id} {...item} />
+                    )
+                ))}
             </div>
         </div>
     );
