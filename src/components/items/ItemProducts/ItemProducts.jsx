@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-function ItemProducts({ id, name, price, img }) {
+function ItemProducts({ id, name, price, img }) { 
     return (
         <div className="flex flex-col items-center mx-4 my-6 p-4 bg-[#f0f0f0] rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 max-w-xs sm:max-w-sm">
             <img src={img} alt="Imagen de Servicio" className="w-32 h-32 sm:w-36 rounded-full" />

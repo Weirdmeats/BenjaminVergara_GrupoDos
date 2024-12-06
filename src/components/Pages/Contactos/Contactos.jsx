@@ -10,7 +10,7 @@ function Contactos() {
       </p>
      
 
-      {/* Footer */}
+      
       <Footer />
     </div>
   );

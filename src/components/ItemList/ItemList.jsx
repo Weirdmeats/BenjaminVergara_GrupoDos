@@ -13,13 +13,13 @@ function ItemList({ itemType }) {
             setLoading(true);
             let fetchedItems;
 
-            // Verifica el tipo de item (productos o servicios) y filtra por categoría
+            //se verifica entre servicios y productos
             if (itemType === 'services') {
                 fetchedItems = await getServices();
             } else if (itemType === 'all') {
                 fetchedItems = await getProducts();
             } else {
-                // Filtra productos por categoría específica
+                //se filtra productos por categoría específica
                 fetchedItems = await getProducts(); 
                 fetchedItems = fetchedItems.filter(product => product.category === itemType);
             }
@@ -28,7 +28,7 @@ function ItemList({ itemType }) {
             setLoading(false);
         };
         fetchItems();
-    }, [itemType]); // Se vuelve a ejecutar cada vez que cambia la categoría
+    }, [itemType]); 
 
     if (loading) {
         return <Loading />;

@@ -4,15 +4,15 @@ function Footer() {
     return (
         <footer className="bg-slate-950 text-white py-6">
             <div className="container mx-auto px-4">
-                <div className="flex justify-between">
-                    <div>
-                        <h2 className="font-bold text-lg">Contactos</h2>
-                        <p>Email: <a href="mailto:scissors@gmail.com" className="text-cyan-400 hover:underline">scissors@gmail.com</a></p>
-                        <p>Tel: <a href="tel:+56982390862" className="text-cyan-400 hover:underline">+56982390862</a></p>
+                <div className="flex flex-col md:flex-row justify-between">
+                    <div className="mb-4 md:mb-0">
+                        <h2 className="font-bold text-lg text-center md:text-left">Contactos</h2>
+                        <p className="text-center md:text-left">Email: <a href="mailto:scissors@gmail.com" className="text-cyan-400 hover:underline">scissors@gmail.com</a></p>
+                        <p className="text-center md:text-left">Tel: <a href="tel:+56982390862" className="text-cyan-400 hover:underline">+56982390862</a></p>
                     </div>
                     <div>
-                        <h2 className="font-bold text-lg">Links importantes</h2>
-                        <ul>
+                        <h2 className="font-bold text-lg text-center md:text-left">Links importantes</h2>
+                        <ul className="text-center md:text-left">
                             <li><a href="#" className="text-cyan-400 hover:underline">Términos de privacidad</a></li>
                             <li><a href="#" className="text-cyan-400 hover:underline">ⓇCopyright 2024</a></li>
                         </ul>
