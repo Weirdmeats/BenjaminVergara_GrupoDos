@@ -1,5 +1,7 @@
 import React from 'react';
 import { useCarrito } from '../../Store/Store';
+import { Link } from 'react-router-dom';
+
 
 const Carrito = () => {
     const { productos, total, totalItems, disminuirProducto, eliminarProducto } = useCarrito();//se obtienen os productos y diferentes funciones
@@ -46,11 +48,11 @@ const Carrito = () => {
                     <div className="text-right space-y-2"> 
                         <p className="text-lg">Total de Items: <span className="font-bold">{totalItems}</span></p>
                         <p className="text-lg font-semibold">Total: ${total}</p> {/*precio total*/}
-                        <button
-                            className="px-6 py-3 bg-green-600 text-white rounded hover:bg-green-500"
-                            onClick={() => alert('Pagar funcionalidad no implementada todavia')} //msg
-                            >Pagar
-                        </button>
+                        <Link to="/pagar">
+                            <button className="px-6 py-3 bg-green-600 text-white rounded hover:bg-green-500">
+                                Pagar
+                            </button>
+                        </Link>
                     </div>
                 </div>
             )}

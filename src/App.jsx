@@ -8,6 +8,7 @@ import Inicio from './components/Pages/Inicio/Inicio';
 import Contactos from './components/Pages/Contactos/Contactos';
 import Servicios from './components/Pages/Servicios/Servicios';
 import Carrito from './components/Pages/Carrito/Carrito';
+import Pagar from "./components/Pages/Pagar/Pagar";
 function App() {
     return (
         <BrowserRouter>
@@ -22,6 +23,7 @@ function App() {
                         <Route path="/contactos" element={<Contactos />} />
                         <Route path="/servicios" element={<Servicios />} />
                         <Route path="/carrito" element={<Carrito />} />
+                        <Route path="/pagar" element={<Pagar />} />
                     </Routes>
                 </main>
                 <Footer />

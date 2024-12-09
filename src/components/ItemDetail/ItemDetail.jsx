@@ -32,16 +32,25 @@ export default function ItemDetail() {
     };
     //funcion para agregar el producto al carrito
     const handleComprar = () => {
-        if (item?.stock > 0 && quantity > 0) {
-            agregarProducto({
-                id: item.id,
-                nombre: item.name,
-                precio: item.price,
-                cantidad: quantity,
-                img: item.img,
-            });
-            alert(`(${quantity}) ${item.name} fue agregado al carrito...`);
-        }};
+        //verificamos stock
+        if (item?.stock > 0 && quantity > 0 && quantity <= item.stock) {
+          //agregar producto
+          agregarProducto({
+            id: item.id,
+            nombre: item.name,
+            precio: item.price,
+            cantidad: quantity,
+            stock: item.stock,
+            img: item.img,
+          });
+          //si hay stock
+          alert(`(${quantity}) unidades de ${item.name} fueron agregadas al carrito recientemente.`);
+        } else {
+          //si no hay
+          alert(`No queda esa cantidad de unidades disponibles de ${item.name}`);
+          return; // Salir de la función inmediatamente después de mostrar el mensaje de error
+        }
+      };
     if (loading) return <div className="container mx-auto"><Loading /></div>;
     if (!item) return <div className="text-center text-red-500">Item no encontrado</div>;
     const precioTotal = item.price * quantity;
