@@ -11,5 +11,5 @@ export const words =[
     'siempre', 'día', 'tanto', 'ella', 'tres', 'sí', 'dijo', 'sido', 'gran', 'país', 
     'según', 'menos', 'mundo', 'año', 'antes', 'estado', 'contra', 'sino', 'forma', 
     'caso', 'nada', 'hacer', 'general', 'estaba', 'poco', 'estos', 'presidente', 'ha',
-    
+    //no se ocupó
 ]

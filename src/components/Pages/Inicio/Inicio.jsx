@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Inicio() {
-  return (
+  return ( //menu principal del proyecto
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900">
       {/*fondo de la imagen*/}
       <img
